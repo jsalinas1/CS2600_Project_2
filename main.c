@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdbool.h>
 /**********************************************************
 displayTotal()
 Pre: @param: d_t, a_t, t_exp, t_a_exp, t_reim, t_amo
@@ -55,7 +55,8 @@ Post: @returns true if Yes, false otherwise
 bool inputValid_char(){
     ///Checks if input letter is Y or N, otherwise, make an error and tell the user
     /// to re-enter. 
-    return false;
+    bool result = false;
+    return result;
 }
 
 /*setTotalDays()
