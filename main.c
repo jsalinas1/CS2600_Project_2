@@ -7,7 +7,8 @@ Post: Displays the total expenses, allowable expenses,
 reimbursement, and the amount saved. No returns
 */
 
-void displayTotal(t_days,d_t, a_t, t_exp, t_a_exp, t_reim, t_amo){
+void displayTotal(int t_days, double d_t, double a_t, 
+                double t_exp, double t_a_exp, double t_reim, double t_amo){
     printf("We made it");
 }
 int main(){
