@@ -12,12 +12,13 @@ reimbursement, and the amount saved. No returns
 void displayTotal(int t_days, double d_t, double a_t, 
                 double t_exp, double t_a_exp, double t_reim, double t_amo){
     printf("\nTotal days on trip: %d\n", t_days);
-    printf("\nTotal days on trip: %d\n", t_days);
-    printf("\nTotal days on trip: %d\n", t_days);
-    printf("\nTotal days on trip: %d\n", t_days);
-    printf("\nTotal days on trip: %d\n", t_days);
-    printf("\nTotal days on trip: %d\n", t_days);
-    printf("We made it");
+    printf("\nTime of departure: %.2f\n", d_t);
+    printf("\nTime of arrival: %.2f\n", a_t);
+    printf("\nTotal expenses: $%.2f\n", t_exp);
+    printf("\nTotal allowable expenses: $%.2f\n", t_a_exp);
+    printf("\nTotal reimbursement: $%.2f\n", t_reim);
+    printf("\nTotal amount saved: $%.2f\n", t_amo);
+
 }
 
 /**
