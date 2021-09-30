@@ -1,6 +1,6 @@
 #ifndef HEADER_H
 #define HEADER_H
-#include <stdbool.h>
+#include <math.h>
 
 /**********************************************************
 displayTotal()
@@ -11,6 +11,12 @@ reimbursement, and the amount saved. No returns
 
 void displayTotal(int t_days, double d_t, double a_t, 
                 double t_exp, double t_a_exp, double t_reim, double t_amo){
+    printf("\nTotal days on trip: %d\n", t_days);
+    printf("\nTotal days on trip: %d\n", t_days);
+    printf("\nTotal days on trip: %d\n", t_days);
+    printf("\nTotal days on trip: %d\n", t_days);
+    printf("\nTotal days on trip: %d\n", t_days);
+    printf("\nTotal days on trip: %d\n", t_days);
     printf("We made it");
 }
 
@@ -20,9 +26,15 @@ Pre: None
 Post: @returns an acceptable input for days
 */
 int inputValid_days(){
-    ///Checks if days input is within the acceptable range
-
-    return 0;
+    int days;
+    fflush(stdout);
+    scanf("%d", &days);
+    while(days < 0){
+        printf("Invalid days input. Try again: ");
+        fflush(stdout);
+        scanf("%d", &days);
+    }
+    return days;
 }
 
 /**
@@ -30,34 +42,37 @@ inputValid_depart()
 Pre: None
 Post: @returns an acceptable input for departure time
 */
-double inputValid_depart(){
-    ///Checks if time depart input is within the acceptable range
+double inputValid_departarrive(){
+    double time;
+    fflush(stdout);
+    scanf("%f", &time);
+    while(time < 0 || time > 23.59 || time - floor(time) > 0.59){
+        printf("Invalid days input. Try again: ");
+        fflush(stdout);
+        scanf("%f", &time);
+    }
 
-    return 0;
+    return time;
 }
 
 
-/**
-inputValid_arrive()
-Pre: None
-Post: @returns an acceptable input for arrival time
-*/
-double inputValid_arrive(){
-    ///Checks if time arrive input is within the acceptable range
-    ///
-
-    return 0;
-}
 
 /**
 inputValid_char()
 Pre: None
 Post: @returns true if Yes, false otherwise
 */
-bool inputValid_char(){
+char inputValid_char(){
     ///Checks if input letter is Y or N, otherwise, make an error and tell the user
     /// to re-enter. 
-    bool result = false;
+    char result;
+    fflush(stdout);
+    scanf("%c", &result);
+    while(result != 'Y' && result != 'y' && result != 'N' && result != 'n'){
+        printf("Invalid days input. Try again: ");
+        fflush(stdout);
+        scanf("%c", &result);
+    }
     return result;
 }
 
