@@ -77,6 +77,18 @@ char inputValid_char(){
     return result;
 }
 
+double inputValid_amounts(){
+    double result;
+    fflush(stdout);
+    scanf("%f", &result);
+    while(result < 0){
+        printf("Invalid amount input. Try again: ");
+        fflush(stdout);
+        scanf("%f", &result);
+    }
+    return result;
+}
+
 /*setTotalDays()
 Pre: @param t_days
 Post: Sets the total days of the trip
