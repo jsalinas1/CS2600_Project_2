@@ -139,7 +139,23 @@ Pre: @param t_days, t_exp, t_a_exp, t_reim, t_amo
 Post: Adds up the expenses
 */
 void getParkingFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, double *t_amo){
+    
+    const double PARKING_RATE = 6; 
+    double parkingFee;
 
+    scanf("%lf", &parkingFee);
+
+    *t_exp += parkingFee;
+    *t_a_exp += PARKING_RATE * t_days;
+
+    if (parkingFee < PARKING_RATE * t_days)
+    {
+        *t_amo += (PARKING_RATE * t_days) - parkingFee;
+    }
+    else
+    {
+        *t_reim += parkingFee - (PARKING_RATE * t_days);
+    }
 }
 
 
@@ -150,6 +166,7 @@ Pre: @param t_days, t_exp, t_a_exp, t_reim, t_amo
 Post: Adds up the expenses
 */
 void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, double *t_amo){
+
 
 }
 
@@ -168,7 +185,23 @@ Pre: @param t_days, t_exp, t_a_exp, t_reim, t_amo
 Post: Adds up the expenses
 */
 void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim, double *t_amo){
+    
+    const double HOTEL_RATE = 90;
+    double hotelExpense;
 
+    scanf("%lf", &hotelExpense);
+
+    *t_exp += hotelExpense;
+    *t_a_exp += HOTEL_RATE * t_days;
+
+    if (hotelExpense < HOTEL_RATE * t_days)
+    {
+        *t_amo += (HOTEL_RATE * t_days) - hotelExpense;
+    }
+    else
+    {
+        *t_reim += hotelExpense - (HOTEL_RATE * t_days);
+    }
 }
 
 /**
