@@ -141,9 +141,8 @@ Post: Adds up the expenses
 void getParkingFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, double *t_amo){
     
     const double PARKING_RATE = 6; 
-    double parkingFee;
-
-    scanf("%lf", &parkingFee);
+    
+    double parkingFee = inputValid_amounts();
 
     *t_exp += parkingFee;
     *t_a_exp += PARKING_RATE * t_days;
@@ -168,9 +167,8 @@ Post: Adds up the expenses
 void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, double *t_amo){
 
     const double TAXI_RATE = 10;
-    double taxiFees;
 
-    scan("%lf", &taxiFees);
+    double taxiFees = inputValid_amounts();
 
     *t_exp += taxiFees;
     *t_a_exp += TAXI_RATE * t_days;
@@ -203,9 +201,8 @@ Post: Adds up the expenses
 void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim, double *t_amo){
     
     const double HOTEL_RATE = 90;
-    double hotelExpense;
 
-    scanf("%lf", &hotelExpense);
+    double hotelExpense = inputValid_amounts();
 
     *t_exp += hotelExpense;
     *t_a_exp += HOTEL_RATE * t_days;
