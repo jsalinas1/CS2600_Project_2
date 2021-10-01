@@ -167,6 +167,22 @@ Post: Adds up the expenses
 */
 void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, double *t_amo){
 
+    const double TAXI_RATE = 10;
+    double taxiFees;
+
+    scan("%lf", &taxiFees);
+
+    *t_exp += taxiFees;
+    *t_a_exp += TAXI_RATE * t_days;
+
+    if (taxiFees < TAXI_RATE * t_days)
+    {
+        *t_amo += (TAXI_RATE * t_days) - taxiFees;
+    }
+    else
+    {
+        *t_reim += taxiFees - (TAXI_RATE * t_days);
+    }
 
 }
 
