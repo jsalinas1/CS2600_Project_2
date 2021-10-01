@@ -171,12 +171,65 @@ void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim
 
 }
 
+void set_reim_saved(double *t_reim, double *t_saved, double *t_a_exp, double Allowable, double mealfee){
+    *t_a_exp += Allowable;
+    if(mealfee > Allowable)
+        *t_reim += (mealfee - Allowable)
+    else if(mealfee <= Allowable)
+        *t_saved += mealfee;
+}
+
 /**
 getMealFees()
 Pre: @param d_time, a_time, t_exp, t_a_exp, t_reim, t_amo
 Post: Adds up the expenses
 */
-void getMealFees(double d_time, double a_time, double *t_exp, double *t_a_exp, double *t_reim, double *t_amo){
+void getMealFees(double d_time, double a_time, double *t_exp, double *t_a_exp, double *t_reim, double *t_saved){
+    const double B_Allowable = 9.00,
+                 L_Allowable = 12.00,
+                 D_Allowable = 16.00;
+    
+    double meal_fees;
+
+    printf("\nDid you eat upon departure flight? (Y/N): ");
+    char user_choice = inputValid_char();
+
+    if(user_choice == 'Y' || user_choice == 'y'){
+        printf("Enter the cost of your meal: ");
+        meal_fees = inputValid_amounts();
+        *t_exp += meal_fees
+        if(d_time < 7)
+            set_reim_saved(t_reim, t_saved, t_a_exp, B_Allowable, meal_fees);
+        else if(d_time >= 7 && d_time < 12)
+            set_reim_saved(t_reim, t_saved, t_a_exp, L_Allowable, meal_fees);
+        else if(d_time >= 12 && d_time < 18)
+            set_reim_saved(t_reim, t_saved, t_a_exp, D_Allowable, meal_fees);
+        else if(d_time >= 18)
+            *t_reim += meal_fees;
+        
+        user_choice = NULL;
+    }
+
+    printf("\nDid you eat meal when upon arrival flight? (Y/N): ");
+    char user_choice = inputValid_char();
+
+    if(user_choice == 'Y' || user_choice == 'y'){
+        printf("Enter the cost of your meal: ");
+        meal_fees = inputValid_amounts();
+        *t_exp += meal_fees
+        if(a_time <= 8)
+            *t_reim += meal_fees;
+        else if(a_time > 8 && a_time <= 13)
+            set_reim_saved(t_reim, t_saved, t_a_exp, B_Allowable, meal_fees);
+        else if(a_time > 13 && a_time <= 19)
+            set_reim_saved(t_reim, t_saved, t_a_exp, L_Allowable, meal_fees);
+        else if(a_time > 19)
+            set_reim_saved(t_reim, t_saved, t_a_exp, D_Allowable, meal_fees);
+        
+        user_choice = NULL;
+    }
+    
+    
 
 }
 
