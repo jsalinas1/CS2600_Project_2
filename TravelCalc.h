@@ -171,6 +171,11 @@ void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim
 
 }
 
+/**
+set_reim_saved()
+Pre: @param t_reim, t_saved, t_a_exp, Allowable, mealfee
+Post: Adds up the reim, saved, and allowable expenses based on the allowable meal time
+*/
 void set_reim_saved(double *t_reim, double *t_saved, double *t_a_exp, double Allowable, double mealfee){
     *t_a_exp += Allowable;
     if(mealfee > Allowable)
