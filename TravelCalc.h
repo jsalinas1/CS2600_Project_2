@@ -174,7 +174,7 @@ void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim
 void set_reim_saved(double *t_reim, double *t_saved, double *t_a_exp, double Allowable, double mealfee){
     *t_a_exp += Allowable;
     if(mealfee > Allowable)
-        *t_reim += (mealfee - Allowable)
+        *t_reim += (mealfee - Allowable);
     else if(mealfee <= Allowable)
         *t_saved += mealfee;
 }
@@ -197,7 +197,7 @@ void getMealFees(double d_time, double a_time, double *t_exp, double *t_a_exp, d
     if(user_choice == 'Y' || user_choice == 'y'){
         printf("Enter the cost of your meal: ");
         meal_fees = inputValid_amounts();
-        *t_exp += meal_fees
+        *t_exp += meal_fees;
         if(d_time < 7)
             set_reim_saved(t_reim, t_saved, t_a_exp, B_Allowable, meal_fees);
         else if(d_time >= 7 && d_time < 12)
@@ -207,16 +207,16 @@ void getMealFees(double d_time, double a_time, double *t_exp, double *t_a_exp, d
         else if(d_time >= 18)
             *t_reim += meal_fees;
         
-        user_choice = NULL;
+        user_choice = '\n';
     }
 
     printf("\nDid you eat meal when upon arrival flight? (Y/N): ");
-    char user_choice = inputValid_char();
+    user_choice = inputValid_char();
 
     if(user_choice == 'Y' || user_choice == 'y'){
         printf("Enter the cost of your meal: ");
         meal_fees = inputValid_amounts();
-        *t_exp += meal_fees
+        *t_exp += meal_fees;
         if(a_time <= 8)
             *t_reim += meal_fees;
         else if(a_time > 8 && a_time <= 13)
@@ -226,7 +226,7 @@ void getMealFees(double d_time, double a_time, double *t_exp, double *t_a_exp, d
         else if(a_time > 19)
             set_reim_saved(t_reim, t_saved, t_a_exp, D_Allowable, meal_fees);
         
-        user_choice = NULL;
+        user_choice = '\n';
     }
     
     
