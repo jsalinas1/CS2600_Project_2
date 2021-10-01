@@ -142,20 +142,28 @@ void getParkingFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, 
     
     const double PARKING_RATE = 6; 
     
-    double parkingFee = inputValid_amounts();
+    printf("Did you have any parking expenses Y/N? ");
+    char choice = inputValid_char();
 
-    *t_exp += parkingFee;
-    *t_a_exp += PARKING_RATE * t_days;
+    if (choice == 'y' || choice == 'Y')
+    {
+        double parkingFee = inputValid_amounts();
 
-    if (parkingFee < PARKING_RATE * t_days)
-    {
-        *t_amo += (PARKING_RATE * t_days) - parkingFee;
+        *t_exp += parkingFee;
+        *t_a_exp += PARKING_RATE * t_days;
+
+        if (parkingFee < PARKING_RATE * t_days)
+        {
+            *t_amo += (PARKING_RATE * t_days) - parkingFee;
+        }
+        else
+        {
+            *t_reim += parkingFee - (PARKING_RATE * t_days);
+        }
     }
-    else
-    {
-        *t_reim += parkingFee - (PARKING_RATE * t_days);
+
     }
-}
+    
 
 
 
@@ -168,18 +176,24 @@ void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, dou
 
     const double TAXI_RATE = 10;
 
-    double taxiFees = inputValid_amounts();
+    printf("Did you have any taxi expenses Y/N? ");
+    char choice = inputValid_char();
 
-    *t_exp += taxiFees;
-    *t_a_exp += TAXI_RATE * t_days;
+    if (choice == 'Y' || choice == 'y')
+    {
+        double taxiFees = inputValid_amounts();
 
-    if (taxiFees < TAXI_RATE * t_days)
-    {
-        *t_amo += (TAXI_RATE * t_days) - taxiFees;
-    }
-    else
-    {
-        *t_reim += taxiFees - (TAXI_RATE * t_days);
+        *t_exp += taxiFees;
+        *t_a_exp += TAXI_RATE * t_days;
+
+        if (taxiFees < TAXI_RATE * t_days)
+        {
+            *t_amo += (TAXI_RATE * t_days) - taxiFees;
+        }
+        else
+        {
+            *t_reim += taxiFees - (TAXI_RATE * t_days);
+        }
     }
 
 }
@@ -202,19 +216,26 @@ void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim
     
     const double HOTEL_RATE = 90;
 
-    double hotelExpense = inputValid_amounts();
+    printf("Did you have any hotel expenses Y/N? ");
+    char choice = inputValid_char();
 
-    *t_exp += hotelExpense;
-    *t_a_exp += HOTEL_RATE * t_days;
+    if (choice == 'y' || choice == 'Y')
+    {
+        double hotelExpense = inputValid_amounts();
 
-    if (hotelExpense < HOTEL_RATE * t_days)
-    {
-        *t_amo += (HOTEL_RATE * t_days) - hotelExpense;
+        *t_exp += hotelExpense;
+        *t_a_exp += HOTEL_RATE * t_days;
+
+        if (hotelExpense < HOTEL_RATE * t_days)
+        {
+            *t_amo += (HOTEL_RATE * t_days) - hotelExpense;
+        }
+        else
+        {
+            *t_reim += hotelExpense - (HOTEL_RATE * t_days);
+        }
     }
-    else
-    {
-        *t_reim += hotelExpense - (HOTEL_RATE * t_days);
-    }
+
 }
 
 /**
