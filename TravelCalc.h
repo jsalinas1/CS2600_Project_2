@@ -9,6 +9,11 @@ Post: Displays the total expenses, allowable expenses,
 reimbursement, and the amount saved. No returns
 */
 
+void clearBuffer(){
+    while(getchar() != '\n')
+        getchar();
+}
+
 void displayTotal(int t_days, double d_t, double a_t, 
                 double t_exp, double t_a_exp, double t_reim, double t_amo){
     printf("\nTotal days on trip: %d\n", t_days);
@@ -28,10 +33,10 @@ Post: @returns an acceptable input for days
 */
 int inputValid_days(){
     int days;
-    fflush(stdout);
+    clearBuffer();
     scanf("%d", &days);
     while(days < 0){
-        printf("Invalid days input. Try again: ");
+        printf("\nInvalid days input. Try again: ");
         fflush(stdout);
         scanf("%d", &days);
     }
@@ -45,11 +50,11 @@ Post: @returns an acceptable input for departure time
 */
 double inputValid_departarrive(){
     double time;
-    fflush(stdout);
+    clearBuffer()
     scanf("%f", &time);
     while(time < 0 || time > 23.59 || time - floor(time) > 0.59){
-        printf("Invalid time input. Try again: ");
-        fflush(stdout);
+        printf("\nInvalid time input. Try again: ");
+        clearBuffer();
         scanf("%f", &time);
     }
 
@@ -67,11 +72,11 @@ char inputValid_char(){
     ///Checks if input letter is Y or N, otherwise, make an error and tell the user
     /// to re-enter. 
     char result;
-    fflush(stdout);
+    clearBuffer();
     scanf("%c", &result);
     while(result != 'Y' && result != 'y' && result != 'N' && result != 'n'){
-        printf("Invalid choice input. Try again: ");
-        fflush(stdout);
+        printf("\nInvalid choice input. Try again: ");
+        clearBuffer();
         scanf("%c", &result);
     }
 
@@ -80,11 +85,11 @@ char inputValid_char(){
 
 double inputValid_amounts(){
     double result;
-    fflush(stdout);
+    clearBuffer();
     scanf("%lf", &result);
     while(result < 0){
-        printf("Invalid amount input. Try again: ");
-        fflush(stdout);
+        printf("\nInvalid amount input. Try again: ");
+        clearBuffer();;
         scanf("%lf", &result);
     }
     return result;
@@ -106,7 +111,7 @@ Pre: @param t_depart, @param t_arrive
 Post: Sets the departure and arrival time
 */
 void setArrDepTime(double *t_depart, double *t_arrive){
-    printf("\nWhat time is the departureon the first day? ");
+    printf("\nWhat time is the departure on the first day? ");
     *t_depart = inputValid_departarrive();
     printf("\nWhat time is the arrival on the last day? ");
     *t_arrive = inputValid_departarrive();
@@ -168,12 +173,12 @@ void getParkingFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, 
     
     const double PARKING_RATE = 6; 
     
-    printf("Did you have any parking expenses Y/N? ");
+    printf("\nDid you have any parking expenses Y/N? ");
     char choice = inputValid_char();
 
     if (choice == 'y' || choice == 'Y')
     {
-        printf("Enter parking expenses: ");
+        printf("\nEnter parking expenses: ");
         double parkingFee = inputValid_amounts();
 
         *t_exp += parkingFee;
@@ -199,12 +204,12 @@ void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, dou
 
     const double TAXI_RATE = 10;
 
-    printf("Did you have any taxi expenses Y/N? ");
+    printf("\nDid you have any taxi expenses Y/N? ");
     char choice = inputValid_char();
 
     if (choice == 'Y' || choice == 'y')
     {
-        printf("Enter taxi expenses: ");
+        printf("\nEnter taxi expenses: ");
         double taxiFees = inputValid_amounts();
 
         *t_exp += taxiFees;
@@ -229,7 +234,7 @@ void getConferencedSemiFees(double *t_exp){
     printf("\nDid you attend to any conference or seminar registration?(Y/N): ");
     char user_choice = inputValid_char();
     if(user_choice == 'Y' || user_choice == 'y'){
-        printf("Enter the fee: ");
+        printf("\nEnter the fee: ");
         *t_exp += inputValid_amounts();
     }
 }
@@ -243,13 +248,13 @@ void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim
     
     const double HOTEL_RATE = 90;
 
-    printf("Did you have any hotel expenses Y/N? ");
+    printf("\nDid you have any hotel expenses Y/N? ");
     char choice = inputValid_char();
 
 
     if (choice == 'y' || choice == 'Y')
     {
-        printf("Enter hotel expenses: ");
+        printf("\nEnter hotel expenses: ");
         double hotelExpense = inputValid_amounts();
 
 
@@ -293,7 +298,7 @@ void getMealFees(double d_time, double a_time, double *t_exp, double *t_a_exp, d
     char user_choice = inputValid_char();
 
     if(user_choice == 'Y' || user_choice == 'y'){
-        printf("Enter the cost of your meal: ");
+        printf("\nEnter the cost of your meal: ");
         meal_fees = inputValid_amounts();
         *t_exp += meal_fees;
         if(d_time < 7)
@@ -312,7 +317,7 @@ void getMealFees(double d_time, double a_time, double *t_exp, double *t_a_exp, d
     user_choice = inputValid_char();
 
     if(user_choice == 'Y' || user_choice == 'y'){
-        printf("Enter the cost of your meal: ");
+        printf("\nEnter the cost of your meal: ");
         meal_fees = inputValid_amounts();
         *t_exp += meal_fees;
         if(a_time <= 8)
