@@ -48,7 +48,7 @@ double inputValid_departarrive(){
     fflush(stdout);
     scanf("%f", &time);
     while(time < 0 || time > 23.59 || time - floor(time) > 0.59){
-        printf("Invalid days input. Try again: ");
+        printf("Invalid time input. Try again: ");
         fflush(stdout);
         scanf("%f", &time);
     }
@@ -70,7 +70,7 @@ char inputValid_char(){
     fflush(stdout);
     scanf("%c", &result);
     while(result != 'Y' && result != 'y' && result != 'N' && result != 'n'){
-        printf("Invalid days input. Try again: ");
+        printf("Invalid choice input. Try again: ");
         fflush(stdout);
         scanf("%c", &result);
     }
