@@ -8,17 +8,17 @@
 | Andy             |  Hotel, parking, Taxi  |
 
 ## Functions needed for this project
-- displayTotal() :
-- setTotalDays() :
-- setArrDepTime() :
-- getRoundTripAirFare() :
-- getCarRentals() :
-- getPrivateCar() :
-- getParkingFees() :
-- getTaxiFees() :
-- getConferencedSemiFees() : 
-- getHotelFees() : 
-- getMealFees() : 
+- displayTotal() : outputs all total values to terminal
+- setTotalDays() : asks and sets total day
+- setArrDepTime() :  asks and sets arrival/departure time
+- getRoundTripAirFare() : adds round trip fare to total
+- getCarRentals() : add car rental fees to total
+- getPrivateCar() : add private car fees to total, also adds the allowable amount
+- getParkingFees() : add parking fees to total, also adds the allowable amount
+- getTaxiFees() : add taxi fee to total, also adds the allowable amount
+- getConferencedSemiFees() : add conference fees to total
+- getHotelFees() : add hotel fees to total, also adds the allowable amount
+- getMealFees() : ask for meal type prices on arrival and departure, also adds the allowable amount
 
 ## Helper Function
 - clearBuffer() : Clears buffer
