@@ -89,6 +89,11 @@ double inputValid_amounts(){
     return result;
 }
 
+/**
+inputValid_miles()
+Pre: None
+Post: @returns an acceptable input for miles
+*/
 int inputValid_miles(){
     int miles;
     fflush(stdout);
