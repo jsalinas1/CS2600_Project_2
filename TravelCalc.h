@@ -95,7 +95,8 @@ Pre: @param t_days
 Post: Sets the total days of the trip
 */
 void setTotalDays(int *t_days){
-    
+    printf("\nHow many days will you be traveling? ");
+    *t_days = inputValid_days();
 }
 
 /**
@@ -104,7 +105,11 @@ Pre: @param t_depart, @param t_arrive
 Post: Sets the departure and arrival time
 */
 void setArrDepTime(double *t_depart, double *t_arrive){
-    /// 
+    printf("\nWhat time is the departureon the first day? ");
+    *t_depart = inputValid_depart();
+    printf("\nWhat time is the arrival on the last day? ");
+    *t_arrive = inputValid_arrive();
+
 }
 
 /**
