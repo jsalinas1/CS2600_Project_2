@@ -124,7 +124,15 @@ Pre: @param t_exp
 Post: Adds up the expenses if there's any round-trip
 */
 void getRoundTripAirFare(double *t_exp){
-
+    printf("\nWill there be a round trip airfare? (Y/N) ");
+    char check = inputValid_char();
+    if (check == 'Y' || check == 'y'){;
+        printf("\nEnter the price of the airfare: ");
+        double price = inputValid_amounts();
+        printf("%f\n", price);
+        *t_exp += price;
+        printf("%f\n", *t_exp);
+    }
 }
 
 /**
