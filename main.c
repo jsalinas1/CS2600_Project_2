@@ -6,7 +6,7 @@ int main(){
     /// Declaration assignments
 
     int total_days;
-
+    char AM_PM[3];
     double depart_time, arrival_time,
         total_expenses = 0, total_allowable_expenses = 0,
         total_reimbursement = 0, total_amount_saved = 0;
@@ -22,6 +22,6 @@ int main(){
     getMealFees(depart_time, arrival_time, &total_expenses, &total_allowable_expenses, &total_reimbursement, &total_amount_saved);
 
     displayTotal(total_days, depart_time, arrival_time, total_expenses,
-                 total_allowable_expenses, total_reimbursement, total_amount_saved);
+                 total_allowable_expenses, total_reimbursement, total_amount_saved, AM_PM);
     return 0;
 }

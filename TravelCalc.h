@@ -1,6 +1,9 @@
 #ifndef HEADER_H
 #define HEADER_H
 #include <math.h>
+#include <string.h>
+
+/**********************************************************
 
 /**********************************************************
 displayTotal()
@@ -17,12 +20,22 @@ double roundNearestCent(double amount){
     return (round(amount*100))/100;
 }
 
+double TimeConvert(double time, char *AMPM){
+    double result = time > 11.59 ? (time > 12.59 ? (time - 12.00) : time) : (time < 1.00 ? time + 12.00 : time);
+    strcpy(AMPM, time > 11.59 ? "PM" : "AM" );
+    return result;
+}
+
+
 void displayTotal(int t_days, double d_t, double a_t, 
-                double t_exp, double t_a_exp, double t_reim, double t_amo){
+                double t_exp, double t_a_exp, double t_reim, double t_amo, char *AMPM){
+    double time_convert;
     printf("\n\n************************************************************");
     printf("\nTotal days on trip: %d\n", t_days);
-    printf("\nTime of departure: %.2f\n", d_t);
-    printf("\nTime of arrival: %.2f\n", a_t);
+    time_convert = TimeConvert(d_t, AMPM);
+    printf("\nTime of departure: %.2f = %.2f %s\n", d_t, time_convert, AMPM);
+    time_convert = TimeConvert(a_t, AMPM);
+    printf("\nTime of arrival: %.2f = %.2f %s\n", a_t, time_convert, AMPM);
     printf("\nTotal expenses: $%.2f\n", roundNearestCent(t_exp));
     printf("\nTotal allowable expenses: $%.2f\n", roundNearestCent(t_a_exp));
     printf("\nTotal reimbursement: $%.2f\n", roundNearestCent(t_reim));
@@ -114,9 +127,9 @@ Pre: @param t_depart, @param t_arrive
 Post: Sets the departure and arrival time
 */
 void setArrDepTime(double *t_depart, double *t_arrive){
-    printf("\nWhat time is the departure on the first day?(00.00 - 23.59): ");
+    printf("\nWhat time is the departure on the first day(00.00-11.59 -AM-, 12.00-23.59 -PM-)?(00.00 - 23.59): ");
     *t_depart = inputValid_departarrive();
-    printf("\nWhat time is the arrival on the last day?(00.00 - 23.59): ");
+    printf("\nWhat time is the arrival on the last day(00.00-11.59 -AM-, -12.00-23.59 PM-)?(00.00 - 23.59): ");
     *t_arrive = inputValid_departarrive();
 
 }
