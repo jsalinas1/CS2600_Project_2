@@ -228,7 +228,7 @@ Post: Adds up the expenses
 void getConferencedSemiFees(double *t_exp){
     printf("\nDid you attend to any conference or seminar registration?(Y/N): ");
     char user_choice = inputValid_char();
-    if(user_choice = 'Y' || user_choice = 'y'){
+    if(user_choice == 'Y' || user_choice == 'y'){
         printf("Enter the fee: ");
         *t_exp += inputValid_amounts();
     }
