@@ -10,19 +10,24 @@ reimbursement, and the amount saved. No returns
 */
 
 void clearBuffer(){
-    while(getchar() != '\n')
-        getchar();
+    while(getchar() != '\n');
+}
+
+double roundNearestCent(double amount){
+    return (round(amount*100))/100;
 }
 
 void displayTotal(int t_days, double d_t, double a_t, 
                 double t_exp, double t_a_exp, double t_reim, double t_amo){
+    printf("\n\n************************************************************");
     printf("\nTotal days on trip: %d\n", t_days);
     printf("\nTime of departure: %.2f\n", d_t);
     printf("\nTime of arrival: %.2f\n", a_t);
-    printf("\nTotal expenses: $%.2f\n", t_exp);
-    printf("\nTotal allowable expenses: $%.2f\n", t_a_exp);
-    printf("\nTotal reimbursement: $%.2f\n", t_reim);
-    printf("\nTotal amount saved: $%.2f\n", t_amo);
+    printf("\nTotal expenses: $%.2f\n", roundNearestCent(t_exp));
+    printf("\nTotal allowable expenses: $%.2f\n", roundNearestCent(t_a_exp));
+    printf("\nTotal reimbursement: $%.2f\n", roundNearestCent(t_reim));
+    printf("\nTotal amount saved: $%.2f\n", roundNearestCent(t_amo));
+     printf("\n\n************************************************************");
 
 }
 
@@ -33,13 +38,14 @@ Post: @returns an acceptable input for days
 */
 int inputValid_days(){
     int days;
-    clearBuffer();
     scanf("%d", &days);
+    printf("%d", days);
     while(days < 0){
         printf("\nInvalid days input. Try again: ");
-        clearBuffer();
+        fflush(stdout);
         scanf("%d", &days);
     }
+    clearBuffer();
     return days;
 }
 
@@ -50,14 +56,14 @@ Post: @returns an acceptable input for departure time
 */
 double inputValid_departarrive(){
     double time;
-    clearBuffer();
-    scanf("%f", &time);
-    while(time < 0 || time > 23.59 || time - floor(time) > 0.59){
+    scanf("%lf", &time);
+    printf("%f", time);
+    while(time < 0 || time > 23.59 || (time - floor(time)) > 0.59){
         printf("\nInvalid time input. Try again: ");
-        clearBuffer();
-        scanf("%f", &time);
+        fflush(stdout);
+        scanf("%lf", &time);
     }
-
+    clearBuffer();
     return time;
 }
 
@@ -72,26 +78,25 @@ char inputValid_char(){
     ///Checks if input letter is Y or N, otherwise, make an error and tell the user
     /// to re-enter. 
     char result;
-    clearBuffer();
     scanf("%c", &result);
     while(result != 'Y' && result != 'y' && result != 'N' && result != 'n'){
         printf("\nInvalid choice input. Try again: ");
-        clearBuffer();
+        fflush(stdout);
         scanf("%c", &result);
     }
-
+    clearBuffer();
     return result;
 }
 
 double inputValid_amounts(){
     double result;
-    clearBuffer();
     scanf("%lf", &result);
     while(result < 0){
         printf("\nInvalid amount input. Try again: ");
-        clearBuffer();;
+        fflush(stdout);
         scanf("%lf", &result);
     }
+    clearBuffer();
     return result;
 }
 
