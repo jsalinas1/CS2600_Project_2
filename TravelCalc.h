@@ -149,7 +149,6 @@ void getPrivateCar(double *t_exp){
     if (check == 'Y' || check == 'y'){;
         printf("\nEnter the number of miles driven: ");
         double num_mi = inputValid_amounts();
-        double total = num_mi * VEHICLE_EXPENSE;
         *t_exp += (num_mi * VEHICLE_EXPENSE);
     }
 }
