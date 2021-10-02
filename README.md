@@ -2,23 +2,23 @@
 ## Team members
 | NAME            | Task            |
 | --------------- | --------------- |
-| Jezreel Salinas  |  main.c, validinput check, display total, meals, fix group bug |
+| Jezreel Salinas  |  main.c, validinput check, display total, meals, debugging duty|
 | Kien Nguyen      |  RoundTrip, CarRentals, PrivateCar |
 | Laurence Garcia  |  Setting Time of Arrival and Departure, and Day of trips |
 | Andy             |  Hotel, parking, Taxi  |
 
 ## Functions needed for this project
-- displayTotal()
-- setTotalDays()
-- setArrDepTime()
-- getRoundTripAirFare()
-- getCarRentals()
-- getPrivateCar()
-- getParkingFees()
-- getTaxiFees
-- getConferencedSemiFees()
-- getHotelFees()
-- getMealFees()
+- displayTotal() :
+- setTotalDays() :
+- setArrDepTime() :
+- getRoundTripAirFare() :
+- getCarRentals() :
+- getPrivateCar() :
+- getParkingFees() :
+- getTaxiFees() :
+- getConferencedSemiFees() : 
+- getHotelFees() : 
+- getMealFees() : 
 
 ## Helper Function
 - clearBuffer() : Clears buffer
