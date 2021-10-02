@@ -37,7 +37,7 @@ int inputValid_days(){
     scanf("%d", &days);
     while(days < 0){
         printf("\nInvalid days input. Try again: ");
-        fflush(stdout);
+        clearBuffer();
         scanf("%d", &days);
     }
     return days;
@@ -50,7 +50,7 @@ Post: @returns an acceptable input for departure time
 */
 double inputValid_departarrive(){
     double time;
-    clearBuffer()
+    clearBuffer();
     scanf("%f", &time);
     while(time < 0 || time > 23.59 || time - floor(time) > 0.59){
         printf("\nInvalid time input. Try again: ");
