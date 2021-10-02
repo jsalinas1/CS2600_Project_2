@@ -39,8 +39,7 @@ Post: @returns an acceptable input for days
 int inputValid_days(){
     int days;
     scanf("%d", &days);
-    printf("%d", days);
-    while(days < 0){
+    while(days <= 1){
         printf("\nInvalid days input. Try again: ");
         fflush(stdout);
         scanf("%d", &days);
@@ -57,7 +56,6 @@ Post: @returns an acceptable input for departure time
 double inputValid_departarrive(){
     double time;
     scanf("%lf", &time);
-    printf("%f", time);
     while(time < 0 || time > 23.59 || (time - floor(time)) > 0.59){
         printf("\nInvalid time input. Try again: ");
         fflush(stdout);
@@ -116,9 +114,9 @@ Pre: @param t_depart, @param t_arrive
 Post: Sets the departure and arrival time
 */
 void setArrDepTime(double *t_depart, double *t_arrive){
-    printf("\nWhat time is the departure on the first day? ");
+    printf("\nWhat time is the departure on the first day?(00.00 - 23.59): ");
     *t_depart = inputValid_departarrive();
-    printf("\nWhat time is the arrival on the last day? ");
+    printf("\nWhat time is the arrival on the last day?(00.00 - 23.59): ");
     *t_arrive = inputValid_departarrive();
 
 }
@@ -129,7 +127,7 @@ Pre: @param t_exp
 Post: Adds up the expenses if there's any round-trip
 */
 void getRoundTripAirFare(double *t_exp){
-    printf("\nWill there be a round trip airfare? (Y/N) ");
+    printf("\nWill there be a round trip airfare? (Y/N): ");
     char check = inputValid_char();
     if (check == 'Y' || check == 'y'){;
         printf("\nEnter the price of the airfare: ");
@@ -144,7 +142,7 @@ Pre: @param t_exp
 Post: Adds up the expenses if there's any round-trip
 */
 void getCarRentals(double *t_exp){
-printf("\nWill there be car rentals? (Y/N) ");
+printf("\nWill there be car rentals? (Y/N): ");
     char check = inputValid_char();
     if (check == 'Y' || check == 'y'){;
         printf("\nEnter the price of the rentals: ");
@@ -160,7 +158,7 @@ Post: Adds up the expenses if there's any private car used
 */
 void getPrivateCar(double *t_exp){
     const float VEHICLE_EXPENSE = 0.27;
-    printf("\nWill you be using a private car? (Y/N) ");
+    printf("\nWill you be using a private car? (Y/N): ");
     char check = inputValid_char();
     if (check == 'Y' || check == 'y'){;
         printf("\nEnter the number of miles driven: ");
@@ -178,7 +176,7 @@ void getParkingFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, 
     
     const double PARKING_RATE = 6; 
     
-    printf("\nDid you have any parking expenses Y/N? ");
+    printf("\nDid you have any parking expenses? (Y/N): ");
     char choice = inputValid_char();
 
     if (choice == 'y' || choice == 'Y')
@@ -209,7 +207,7 @@ void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, dou
 
     const double TAXI_RATE = 10;
 
-    printf("\nDid you have any taxi expenses Y/N? ");
+    printf("\nDid you have any taxi expenses? (Y/N): ");
     char choice = inputValid_char();
 
     if (choice == 'Y' || choice == 'y')
@@ -236,7 +234,7 @@ Pre: @param t_exp
 Post: Adds up the expenses
 */
 void getConferencedSemiFees(double *t_exp){
-    printf("\nDid you attend to any conference or seminar registration?(Y/N): ");
+    printf("\nDid you attend to any conference or seminar registration? (Y/N): ");
     char user_choice = inputValid_char();
     if(user_choice == 'Y' || user_choice == 'y'){
         printf("\nEnter the fee: ");
@@ -253,7 +251,7 @@ void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim
     
     const double HOTEL_RATE = 90;
 
-    printf("\nDid you have any hotel expenses Y/N? ");
+    printf("\nDid you have any hotel expenses? (Y/N): ");
     char choice = inputValid_char();
 
 
