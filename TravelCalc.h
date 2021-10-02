@@ -129,9 +129,7 @@ void getRoundTripAirFare(double *t_exp){
     if (check == 'Y' || check == 'y'){;
         printf("\nEnter the price of the airfare: ");
         double price = inputValid_amounts();
-        printf("%f\n", price);
         *t_exp += price;
-        printf("%f\n", *t_exp);
     }
 }
 
