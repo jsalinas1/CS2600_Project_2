@@ -89,6 +89,18 @@ double inputValid_amounts(){
     return result;
 }
 
+int inputValid_miles(){
+    int miles;
+    fflush(stdout);
+    scanf("%d", &miles);
+    while(miles < 0){
+        printf("Invalid miles input. Try again: ");
+        fflush(stdout);
+        scanf("%d", &miles);
+    }
+    return miles;
+}
+
 /*setTotalDays()
 Pre: @param t_days
 Post: Sets the total days of the trip
@@ -130,7 +142,7 @@ Pre: @param t_exp
 Post: Adds up the expenses if there's any private car used
 */
 void getPrivateCar(double *t_exp){
-
+    
 }
 
 /**
