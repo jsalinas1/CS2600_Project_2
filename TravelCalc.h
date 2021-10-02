@@ -146,26 +146,18 @@ void getParkingFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, 
     printf("Did you have any parking expenses Y/N? ");
     char choice = inputValid_char();
 
-    getchar();
-
     if (choice == 'y' || choice == 'Y')
     {
         printf("Enter parking expenses: ");
         double parkingFee = inputValid_amounts();
 
-        getchar();
-
         *t_exp += parkingFee;
         *t_a_exp += PARKING_RATE * t_days;
 
         if (parkingFee < PARKING_RATE * t_days)
-        {
             *t_amo += (PARKING_RATE * t_days) - parkingFee;
-        }
         else
-        {
             *t_reim += parkingFee - (PARKING_RATE * t_days);
-        }
     }
 
     }
@@ -185,26 +177,18 @@ void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, dou
     printf("Did you have any taxi expenses Y/N? ");
     char choice = inputValid_char();
 
-    getchar();
-
     if (choice == 'Y' || choice == 'y')
     {
         printf("Enter taxi expenses: ");
         double taxiFees = inputValid_amounts();
 
-        getchar();
-
         *t_exp += taxiFees;
         *t_a_exp += TAXI_RATE * t_days;
 
         if (taxiFees < TAXI_RATE * t_days)
-        {
             *t_amo += (TAXI_RATE * t_days) - taxiFees;
-        }
         else
-        {
             *t_reim += taxiFees - (TAXI_RATE * t_days);
-        }
 
         
     }
@@ -232,26 +216,20 @@ void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim
     printf("Did you have any hotel expenses Y/N? ");
     char choice = inputValid_char();
 
-    getchar();
 
     if (choice == 'y' || choice == 'Y')
     {
         printf("Enter hotel expenses: ");
         double hotelExpense = inputValid_amounts();
 
-        getchar();
 
         *t_exp += hotelExpense;
         *t_a_exp += HOTEL_RATE * t_days;
 
         if (hotelExpense < HOTEL_RATE * t_days)
-        {
             *t_amo += (HOTEL_RATE * t_days) - hotelExpense;
-        }
         else
-        {
             *t_reim += hotelExpense - (HOTEL_RATE * t_days);
-        }
     }
 
 }
