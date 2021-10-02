@@ -89,6 +89,7 @@ double inputValid_amounts(){
     return result;
 }
 
+
 /*setTotalDays()
 Pre: @param t_days
 Post: Sets the total days of the trip
@@ -112,7 +113,13 @@ Pre: @param t_exp
 Post: Adds up the expenses if there's any round-trip
 */
 void getRoundTripAirFare(double *t_exp){
-
+    printf("\nWill there be a round trip airfare? (Y/N) ");
+    char check = inputValid_char();
+    if (check == 'Y' || check == 'y'){;
+        printf("\nEnter the price of the airfare: ");
+        double price = inputValid_amounts();
+        *t_exp += price;
+    }
 }
 
 /**
@@ -130,7 +137,15 @@ Pre: @param t_exp
 Post: Adds up the expenses if there's any private car used
 */
 void getPrivateCar(double *t_exp){
-
+    const float VEHICLE_EXPENSE = 0.27;
+    printf("\nWill you be using a private car? (Y/N) ");
+    char check = inputValid_char();
+    if (check == 'Y' || check == 'y'){;
+        printf("\nEnter the number of miles driven: ");
+        double num_mi = inputValid_amounts();
+        double total = num_mi * VEHICLE_EXPENSE;
+        *t_exp += (num_mi * VEHICLE_EXPENSE);
+    }
 }
 
 /**
