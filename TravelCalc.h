@@ -89,22 +89,6 @@ double inputValid_amounts(){
     return result;
 }
 
-/**
-inputValid_miles()
-Pre: None
-Post: @returns an acceptable input for miles
-*/
-int inputValid_miles(){
-    int miles;
-    fflush(stdout);
-    scanf("%d", &miles);
-    while(miles < 0){
-        printf("Invalid miles input. Try again: ");
-        fflush(stdout);
-        scanf("%d", &miles);
-    }
-    return miles;
-}
 
 /*setTotalDays()
 Pre: @param t_days
@@ -164,7 +148,8 @@ void getPrivateCar(double *t_exp){
     char check = inputValid_char();
     if (check == 'Y' || check == 'y'){;
         printf("\nEnter the number of miles driven: ");
-        int num_mi = inputValid_miles();
+        double num_mi = inputValid_amounts();
+        double total = num_mi * VEHICLE_EXPENSE;
         *t_exp += (num_mi * VEHICLE_EXPENSE);
     }
 }
