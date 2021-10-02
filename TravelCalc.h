@@ -67,11 +67,7 @@ Post: Sets the total days of the trip
 */
 void setTotalDays(int *t_days){
     printf("\nHow many days will you be traveling? ");
-    int check = inputValid_days();
-    if (check >= 0)
-    {
-        *t_days = check;
-    }
+    *t_days = inputValid_days();
 }
 
 /**
@@ -81,15 +77,10 @@ Post: Sets the departure and arrival time
 */
 void setArrDepTime(double *t_depart, double *t_arrive){
     printf("\nWhat time is the departureon the first day? ");
-    double checkD = inputValid_depart();
+    *t_depart = inputValid_depart();
     printf("\nWhat time is the arrival on the last day? ");
-    double checkA = inputValid_arrive();
+    *t_arrive = inputValid_arrive();
 
-    if (checkD > 0 && checkA > 0)
-    {
-        *t_depart = checkD;
-        *t_arrive = checkA;
-    }
 }
 
 /**
