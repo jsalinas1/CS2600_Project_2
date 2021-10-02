@@ -107,9 +107,9 @@ Post: Sets the departure and arrival time
 */
 void setArrDepTime(double *t_depart, double *t_arrive){
     printf("\nWhat time is the departureon the first day? ");
-    *t_depart = inputValid_depart();
+    *t_depart = inputValid_departarrive();
     printf("\nWhat time is the arrival on the last day? ");
-    *t_arrive = inputValid_arrive();
+    *t_arrive = inputValid_departarrive();
 
 }
 
@@ -131,10 +131,10 @@ void getRoundTripAirFare(double *t_exp){
 /**
 getCarRentals()
 Pre: @param t_exp
-Post: Adds up the expenses if there are any car rentals
+Post: Adds up the expenses if there's any round-trip
 */
 void getCarRentals(double *t_exp){
-    printf("\nWill there be car rentals? (Y/N) ");
+printf("\nWill there be car rentals? (Y/N) ");
     char check = inputValid_char();
     if (check == 'Y' || check == 'y'){;
         printf("\nEnter the price of the rentals: ");
