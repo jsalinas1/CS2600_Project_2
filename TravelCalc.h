@@ -141,10 +141,16 @@ void getRoundTripAirFare(double *t_exp){
 /**
 getCarRentals()
 Pre: @param t_exp
-Post: Adds up the expenses if there's any round-trip
+Post: Adds up the expenses if there are any car rentals
 */
 void getCarRentals(double *t_exp){
-
+    printf("\nWill there be car rentals? (Y/N) ");
+    char check = inputValid_char();
+    if (check == 'Y' || check == 'y'){;
+        printf("\nEnter the price of the rentals: ");
+        double price = inputValid_amounts();
+        *t_exp += price;
+    }
 }
 
 /**
@@ -159,7 +165,6 @@ void getPrivateCar(double *t_exp){
     if (check == 'Y' || check == 'y'){;
         printf("\nEnter the number of miles driven: ");
         int num_mi = inputValid_miles();
-        double total = num_mi * VEHICLE_EXPENSE;
         *t_exp += (num_mi * VEHICLE_EXPENSE);
     }
 }
