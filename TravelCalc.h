@@ -74,17 +74,18 @@ char inputValid_char(){
         fflush(stdout);
         scanf("%c", &result);
     }
+
     return result;
 }
 
 double inputValid_amounts(){
     double result;
     fflush(stdout);
-    scanf("%f", &result);
+    scanf("%lf", &result);
     while(result < 0){
         printf("Invalid amount input. Try again: ");
         fflush(stdout);
-        scanf("%f", &result);
+        scanf("%lf", &result);
     }
     return result;
 }
@@ -145,9 +146,14 @@ void getParkingFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, 
     printf("Did you have any parking expenses Y/N? ");
     char choice = inputValid_char();
 
+    getchar();
+
     if (choice == 'y' || choice == 'Y')
     {
+        printf("Enter parking expenses: ");
         double parkingFee = inputValid_amounts();
+
+        getchar();
 
         *t_exp += parkingFee;
         *t_a_exp += PARKING_RATE * t_days;
@@ -179,9 +185,14 @@ void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, dou
     printf("Did you have any taxi expenses Y/N? ");
     char choice = inputValid_char();
 
+    getchar();
+
     if (choice == 'Y' || choice == 'y')
     {
+        printf("Enter taxi expenses: ");
         double taxiFees = inputValid_amounts();
+
+        getchar();
 
         *t_exp += taxiFees;
         *t_a_exp += TAXI_RATE * t_days;
@@ -194,6 +205,8 @@ void getTaxiFees(int t_days, double *t_exp, double *t_a_exp, double *t_reim, dou
         {
             *t_reim += taxiFees - (TAXI_RATE * t_days);
         }
+
+        
     }
 
 }
@@ -219,9 +232,14 @@ void getHotelExpenses(int t_days, double *t_exp, double *t_a_exp, double *t_reim
     printf("Did you have any hotel expenses Y/N? ");
     char choice = inputValid_char();
 
+    getchar();
+
     if (choice == 'y' || choice == 'Y')
     {
+        printf("Enter hotel expenses: ");
         double hotelExpense = inputValid_amounts();
+
+        getchar();
 
         *t_exp += hotelExpense;
         *t_a_exp += HOTEL_RATE * t_days;
