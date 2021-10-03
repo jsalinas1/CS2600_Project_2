@@ -10,7 +10,8 @@
 
 /// clears buffer
 void clearBuffer(){
-    while(getchar() != '\n');
+    int c;
+    while((c = getchar()) != '\n' && c != EOF);
 }
 
 /// retruns a value rounded to the nearest cent
@@ -94,9 +95,10 @@ char inputValid_char(){
     /// to re-enter. 
     char result;
     scanf("%c", &result);
+    fflush(stdout);
     while(result != 'Y' && result != 'y' && result != 'N' && result != 'n'){
         printf("\nInvalid choice input. Try again: ");
-        fflush(stdout);
+        clearBuffer();
         scanf("%c", &result);
     }
     clearBuffer();
