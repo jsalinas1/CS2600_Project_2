@@ -73,7 +73,7 @@ Post: @returns an acceptable input for departure time
 double inputValid_departarrive(){
     double time;
     scanf("%lf", &time);
-    while(time < 0 || time > 23.59 || (time - floor(time)) > 0.59){
+    while(time < 0 || time > 23.59 || (float)(time - floor(time)) > 0.59){
         printf("\nInvalid time input. Try again: ");
         fflush(stdout);
         scanf("%lf", &time);
