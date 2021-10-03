@@ -6,27 +6,31 @@
 /**********************************************************
 
 /**********************************************************
-displayTotal()
-Pre: @param: d_t, a_t, t_exp, t_a_exp, t_reim, t_amo
-Post: Displays the total expenses, allowable expenses,
-reimbursement, and the amount saved. No returns
 */
 
+/// clears buffer
 void clearBuffer(){
     while(getchar() != '\n');
 }
 
+/// retruns a value rounded to the nearest cent
 double roundNearestCent(double amount){
     return (round(amount*100))/100;
 }
 
+// converts 24 hr clock into 12 hr clock. Also returns if it's AM or PM time
 double TimeConvert(double time, char *AMPM){
     double result = time > 11.59 ? (time > 12.59 ? (time - 12.00) : time) : (time < 1.00 ? time + 12.00 : time);
     strcpy(AMPM, time > 11.59 ? "PM" : "AM" );
     return result;
 }
 
-
+/*
+displayTotal()
+Pre: @param: d_t, a_t, t_exp, t_a_exp, t_reim, t_amo
+Post: Displays the total expenses, allowable expenses,
+reimbursement, and the amount saved. No returns
+*/
 void displayTotal(int t_days, double d_t, double a_t, 
                 double t_exp, double t_a_exp, double t_reim, double t_amo, char *AMPM){
     double time_convert;
