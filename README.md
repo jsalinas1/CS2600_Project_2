@@ -2,11 +2,14 @@
 ## Team members
 | NAME            | Task            |
 | --------------- | --------------- |
-| Jezreel Salinas  |  main.c, validinput check, display total, meals, debugging duty|
-| Alexander Rodriguez       |  RoundTrip, CarRentals, PrivateCar |
-| Ana Estrada  |  Setting Time of Arrival and Departure, and Day of trips |
-| Andy Chen          |  Hotel, parking, Taxi  |
+| Jezreel Salinas  |  list_contact(), get_option(), debugging duty|
+| Alexander Rodriguez       |  add_contact(), search_contact() PrivateCar |
+| Ana Estrada  |  edit_contact(), delete_contact(), video of simulation |
+| Andy Chen          |  menu(), load_file() and save_file()  |
+| ---------------| --------------- |
+| As a group      | search()       |
 
-## Functions needed for this project
 
 ## Helper Function
+- edit_this_function() - Edits a specific contact. Also help organized the code
+- clear_screen() - Takes care of cross platform when it comes to clearing the terminal window. (clear for linux, cls for windows)
