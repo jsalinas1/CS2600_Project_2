@@ -7,7 +7,7 @@
 | Ana Estrada  |  edit_contact(), delete_contact(), video of simulation |
 | Andy Chen          |  menu(), load_file() and save_file()  |
 | ---------------| --------------- |
-| As a group      | search()       |
+| As a group      | search() - search, edit, and delete cases   |
 
 
 ## Helper Function
